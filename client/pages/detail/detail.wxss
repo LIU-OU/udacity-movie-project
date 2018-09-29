@@ -1,0 +1,78 @@
+/* pages/detail/detail.wxss */
+page {
+    padding: 70rpx 0rpx 50rpx;
+}
+.deImage-container {
+    display: flex;
+    justify-content: center;
+}
+.detail-image {
+    width: 240rpx;
+    margin: 0 auto;
+    margin-top: -50rpx;
+   
+}
+.deMovie-title {
+    font-weight: bold;
+    font-size: 36rpx;
+    line-height: 40rpx;
+    padding: 12rpx;
+}
+
+.deContent-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    width: 86%;
+    height:100%;
+    background-color: white;
+    margin: 0rpx auto 10%;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+}
+.deMovie-desc,
+.deMovie-fragDesc {
+    padding: 16rpx 64rpx 0rpx;
+    text-align: justify;
+    font-size: 33rpx;
+}
+.deMovie-desc-scroll {
+    position: absolute;
+   
+    top: 0rpx;
+    /* left: 30rpx;
+    right: 30rpx; */
+    left: 0rpx;
+    bottom: 0rpx;
+    /* height: 100%;
+    width: 100%; */
+    background-color: rgba(0, 0, 0, 0.466);
+   
+    display: flex;
+    justify-content: center;
+}
+.deMovie-desc {
+     color: white;
+     line-height: 46rpx; 
+     padding-top: 100rpx;
+     padding-bottom: 60rpx;
+}
+
+
+.checkCom-icon, .addCom-icon {
+    width: 50rpx;
+}
+.comment-about {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: space-around;
+   
+}
+.comment-check, .comment-add {
+    display: flex;
+    border: 1px solid rgba(190, 188, 188, 0.274);
+    padding: 10rpx;
+    margin-bottom: 20rpx;
+}

@@ -1,0 +1,18 @@
+<!--pages/home/home.wxml-->
+<view class="movie-about">
+    
+    <image class="movie-image" src="{{movie.image}}" mode="widthFix" bindtap="onTapMovieDetail" data-category="{{movie.category}}" data-createTime="{{movie.create_time}}" data-description="{{movie.description}}" data-id="{{movie.id}}" data-image="{{movie.image}}" data-title="{{movie.title}}"></image>
+
+    <view class="movie-title">{{movie.title}}</view>
+</view>
+<view class="bottom-turn">
+    <view class="hot-turn">
+        <image class="hot-icon" src="../../images/hot.png" />
+        <view class="hot-text">热门</view>
+    </view>
+    <view class="mine-turn">
+        <image class="mine-icon" src="../../images/own.png" mode="aspectFit"></image>
+        <view class="mine-text">我的</view>
+    </view>
+</view>
+

@@ -1,0 +1,42 @@
+/* pages/home/home.wxss */
+
+.movie-about {
+    padding: 36rpx 50rpx 0rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.movie-about navigator {
+    display: flex;
+}
+.movie-image {
+    width: 84%;
+}
+.movie-title {
+    font-size:38rpx;
+    margin-top: 24rpx;
+    letter-spacing: 6rpx;
+}
+
+.bottom-turn {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    height: 100rpx;
+    width: 100%;
+    background-color: white;
+    border-top: 2rpx solid black;
+}
+.mine-turn, .hot-turn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40rpx;
+}
+.mine-icon, .hot-icon {
+    width: 48rpx;
+    height: 48rpx;
+    padding-right: 12rpx;
+}

@@ -1,0 +1,26 @@
+<!--pages/detail/detail.wxml-->
+<!-- <view class="deImage-container">
+    
+</view> -->
+<view class="deContent-container">
+    <image class="detail-image" src='{{movie.image}}' mode="widthFix"></image>
+    <view class="deMovie-title">{{movie.title}}</view>
+    <view class="movie-description" bindtap="onTapTextLength">
+        <view wx:if="{{isPart}}" class="deMovie-fragDesc">{{fragText}}</view>
+        <scroll-view scroll-y wx:if="{{isAll}}" class="deMovie-desc-scroll">
+            <view class="deMovie-desc">{{movie.description}}</view>
+        </scroll-view>
+    </view>
+    
+    <view class="comment-about">
+        <view class="comment-check">
+            <image class="checkCom-icon" src="../../images/eye.png" mode="widthFix"></image>
+            <view>查看影评</view>
+        </view>
+        <view class="comment-add">
+            <image class="addCom-icon" src="../../images/comment.png" mode="widthFix"></image>
+            <view>添加影评</view>
+        </view>
+    </view>
+</view>
+
