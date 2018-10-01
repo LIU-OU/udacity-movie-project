@@ -8,19 +8,42 @@ Page({
    * 页面的初始数据
    */
   data: {
-    movieList: []
+    topFive: []
 
   },
   /**
-   * 获取当前电影列表
+   * 获取热度前5的电影
    */
   getMovieList() {
+    wx.showLoading({
+      title: '电影数据加载...',
+    })
     qcloud.request({
       url: config.service.movieList,
       success: result => {
-        console.log(223)
-        let data = result.data
-        console.log(data)
+        wx.hideLoading()
+        if(!result.data.code) {
+          console.log(result.data)
+          this.setData({
+            topFive: result.data.data.slice(0, 5)
+          })
+          console.log(this.data.topFive)
+        } else {
+          wx.showToast({
+            icon: 'none',
+            title: '电影数据加载失败',
+          })
+        }
+       
+      },
+
+      fail: result => {
+        wx.hideLoading()
+
+        wx.showToast({
+          icon: 'none',
+          title: '电影数据加载失败',
+        })
       }
     })
   },

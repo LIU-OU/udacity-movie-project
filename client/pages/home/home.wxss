@@ -33,10 +33,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40rpx;
+    height: 100%;
+    padding: 0rpx 24rpx;
 }
 .mine-icon, .hot-icon {
     width: 48rpx;
     height: 48rpx;
     padding-right: 12rpx;
+}
+
+.bg-grey {
+    background-color: grey;
 }

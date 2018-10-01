@@ -6,10 +6,10 @@
     <view class="movie-title">{{movie.title}}</view>
 </view>
 <view class="bottom-turn">
-    <view class="hot-turn">
+    <navigator hover-class="bg-grey" url="/pages/hot-list/hot-list" class="hot-turn">
         <image class="hot-icon" src="../../images/hot.png" />
         <view class="hot-text">热门</view>
-    </view>
+    </navigator>
     <view class="mine-turn">
         <image class="mine-icon" src="../../images/own.png" mode="aspectFit"></image>
         <view class="mine-text">我的</view>

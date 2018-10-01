@@ -6,14 +6,15 @@ Page({
    */
   data: {
     movie: [],
-    fragText: "",//电影描述的部分内容
-    isPart: true,//是否显示部分描述
-    isAll: false,//是否显示全部描述，默认false
+    fragText: "", //电影描述的部分内容
+    isPart: true, //是否显示部分描述
+    isAll: false, //是否显示全部描述，默认false
+    isPanel: false, //评论面板是否显示
 
   },
   //切换描述显示的长短（全部还是部分）
   onTapTextLength() {
-    if(this.data.isPart) {
+    if (this.data.isPart) {
       this.setData({
         isPart: false,
         isAll: true
@@ -23,6 +24,26 @@ Page({
         isPart: true,
         isAll: false
       })
+    }
+  },
+
+  //唤出选择评论方式的面板
+  onTapCommentPanel() {
+    if(!this.data.isPanel) {
+      this.setData({
+        isPanel: true
+      })
+    } else {
+      this.setData({
+        isPanel: false
+      })
+    }
+
+  },
+  //点击白色面板之外的背景区域，取消评论选择块的显示
+  modOnTapCommentPanel(event){
+    if(event.currentTarget.id == event.target.id) {
+      this.onTapCommentPanel()
     }
   },
   /**
@@ -37,8 +58,8 @@ Page({
     movie.createTime = options.createTime
     movie.description = options.description
     let fragText = ""
-    if(options.description.length < 100) {
-      fragText +=options.description.slice(0, 70)
+    if (options.description.length < 100) {
+      fragText += options.description.slice(0, 70)
       fragText += "  (点击查看全部) ......"
     } else {
       fragText += options.description.slice(0, 100)

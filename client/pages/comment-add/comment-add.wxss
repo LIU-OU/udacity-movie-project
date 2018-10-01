@@ -1,0 +1,64 @@
+.addCom-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    width: 84%;
+    height: 80%;
+    background-color: white;
+    margin: 100rpx auto 0rpx;
+    border: 2rpx solid rgba(218, 212, 212, 0.658);
+}
+.movie-picture {
+    width: 200rpx;
+    margin-top: -60rpx;
+}
+.movie-title {
+    padding: 24rpx 0rpx;
+    font-size: 36rpx;
+    font-weight: bold;
+
+}
+
+.done-button {
+    text-align: center;
+    font-size: 32rpx;
+    padding: 24rpx 0;
+    background-color:#00BD00;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+}
+
+.comment-audio {
+    border: 1rpx solid rgb(179, 176, 176);
+    padding: 18rpx 0rpx;
+    width: 270rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.comment-text {
+    font-size: 28rpx;
+    text-align: center;
+    margin-top: 20rpx;
+}
+
+.record-icon {
+    width: 44rpx;
+}
+.record-text {
+    font-size: 33rpx;
+}
+
+
+
+.auto-audio {
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+    background-color: rgb(179, 176, 176);
+    padding: 0rpx;
+}

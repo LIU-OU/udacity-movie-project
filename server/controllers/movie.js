@@ -4,11 +4,11 @@ const DB = require('../utils/db.js')
 module.exports = {
 
     list: async ctx => {
-    //    ctx.state.data = {
-    //        "id": 22
-    //    }
+      //  ctx.state.data = {
+      //      "id": 22
+      //  }
 
-        ctx.state.data = await DB.query('select * from movies')
+        ctx.state.data = await DB.query('select * from movies ORDER BY comment_count')
     },
     /**
      * 获取具体某部电影

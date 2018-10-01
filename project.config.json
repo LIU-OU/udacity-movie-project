@@ -26,7 +26,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -37,7 +37,13 @@
 				{
 					"id": -1,
 					"name": "电影列表",
-					"pathName": "pages/hot-list/hot-list"
+					"pathName": "pages/hot-list/hot-list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加评论",
+					"pathName": "pages/comment-add/comment-add"
 				}
 			]
 		}

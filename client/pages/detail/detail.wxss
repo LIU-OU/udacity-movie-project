@@ -2,10 +2,7 @@
 page {
     padding: 70rpx 0rpx 50rpx;
 }
-.deImage-container {
-    display: flex;
-    justify-content: center;
-}
+
 .detail-image {
     width: 240rpx;
     margin: 0 auto;
@@ -76,3 +73,32 @@ page {
     padding: 10rpx;
     margin-bottom: 20rpx;
 }
+
+/*
+    添加评论面板
+*/
+.panel-background {
+    background-color: rgba(0, 0, 0, 0.281);
+    height: 100%;
+    position: fixed;
+    top: 0rpx;
+    width: 100%;
+}
+.addComment-panel {
+    position: absolute;
+    z-index: 2;
+    bottom: 0rpx;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    background-color: white;
+}
+.add-textComment, .add-audioComment, .cancle-button {
+    text-align: center;
+    font-size: 32rpx;
+    padding: 23rpx;
+}
+.cancle-button {
+    border-top: 6rpx solid grey;
+}
+

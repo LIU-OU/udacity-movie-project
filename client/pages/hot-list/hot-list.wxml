@@ -1,2 +1,10 @@
-<!--pages/hot-list/hot-list.wxml-->
-<text>pages/hot-list/hot-list.wxml</text>
+<scroll-view class="scroll-view" scroll-y="{{true}}">
+<navigator url="/pages/detail/detail?id={{movie.id}}&title={{movie.title}}&image={{movie.image}}&category={{movie.category}}&createTime={{movie.create_time}}&description={{movie.description}}"
+    class="movie-card" wx:for="{{topFive}}" wx:key="id" wx:for-item="movie">
+        <image class="card-image" src="{{movie.image}}" mode="aspectFill" />
+        <view class="card-text">
+            <view class="movie-title">{{movie.title}}</view>
+            <view class="movie-category">{{movie.category}}</view>
+        </view>
+    </navigator>
+</scroll-view>

@@ -19,8 +19,16 @@
         </view>
         <view class="comment-add">
             <image class="addCom-icon" src="../../images/comment.png" mode="widthFix"></image>
-            <view>添加影评</view>
+            <view bindtap="onTapCommentPanel">添加影评</view>
         </view>
     </view>
 </view>
+<view  wx:if="{{isPanel}}" class="panel-background" id="commentPanel" bindtap="modOnTapCommentPanel" >
+    <view class="addComment-panel" id="zzz" catchtap="">
+        <navigator url='/pages/comment-add/comment-add?image={{movie.image}}&title={{movie.title}}&showText="text"' class="add-textComment">文字</navigator>
+        <navigator url='/pages/comment-add/comment-add?image={{movie.image}}&title={{movie.title}}&showAudio=true' class="add-audioComment">音频</navigator>
+        <view class="cancle-button" bindtap="onTapCommentPanel">取消</view>
+    </view>
+</view>
+
 
