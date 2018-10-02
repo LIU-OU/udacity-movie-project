@@ -27,7 +27,7 @@ Page({
 
     qcloud.request({
       url: config.service.movieDetail + randomId,
-      // url: config.service.movieDetail + "15",
+      login: true,
       success: result => {
         wx.hideLoading()
         let data = result.data

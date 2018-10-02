@@ -11,6 +11,8 @@ const AUTHORIZED = 2
 App({
     onLaunch: function () {
         qcloud.setLoginUrl(config.service.loginUrl)
+        console.log("223")
+        console.log(userInfo)
     },
 
     data: {
@@ -117,6 +119,7 @@ App({
                         success && success({
                             userInfo
                         })
+                        console.log("处于会话期间")
                     },
                     fail: () => {
                         error && error()

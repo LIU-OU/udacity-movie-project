@@ -14,6 +14,7 @@ module.exports = {
      * 获取具体某部电影
      */
     detail: async ctx => {
+        let userName = ctx.state.$wxInfo.userinfo.nickName
         let movieId = + ctx.params.id 
         let movie 
         if(!isNaN(movieId)) {
@@ -21,6 +22,7 @@ module.exports = {
         } else {
             movie = {}
         }
+        movie.username = userName
         ctx.state.data = movie
         
     },

@@ -33,7 +33,7 @@ router.get('/message', controllers.message.get)
 router.post('/message', controllers.message.post)
 
 //GET 用来获取电影详情
-router.get('/movie/:id', controllers.movie.detail)
+router.get('/movie/:id',validationMiddleware, controllers.movie.detail)
 
 //GET 用来获取电影列表
 router.get('/movie', controllers.movie.list)

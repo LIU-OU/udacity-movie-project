@@ -10,9 +10,9 @@
         <image class="hot-icon" src="../../images/hot.png" />
         <view class="hot-text">热门</view>
     </navigator>
-    <view class="mine-turn">
+<navigator url="/pages/collection/collection" class="mine-turn">
         <image class="mine-icon" src="../../images/own.png" mode="aspectFit"></image>
         <view class="mine-text">我的</view>
-    </view>
+    </navigator>
 </view>
 

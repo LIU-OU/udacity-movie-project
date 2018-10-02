@@ -32,7 +32,7 @@ page {
   margin-left: 53rpx;
   height: 100rpx;
   width: 100rpx;
-  background-color: #F5E069;
+  background-color: #efecec;
   border-radius: 50%;
 }
 .unlogin-info {
@@ -58,7 +58,7 @@ page {
   width: 250rpx;
   height: 80rpx;
   line-height: 80rpx;
-  background: #F5E069;
+  background: #efecec;
   border-radius: 10rpx;
   font-size: 30rpx;
   text-align: center;

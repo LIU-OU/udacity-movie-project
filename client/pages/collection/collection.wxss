@@ -1,1 +1,35 @@
 /* pages/collection/collection.wxss */
+.col-caption {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100rpx;
+    color: rgb(209, 157, 35);
+}
+.cap-image {
+    width: 64rpx;
+    padding:0rpx 0rpx 12rpx 24rpx;
+    
+}
+
+/*没有收藏时的样式*/
+.noColl-tip {
+    border: 2rpx solid rgba(148, 146, 146, 0.397);
+    width: 73%;
+    padding: 38rpx;
+    margin: 200rpx auto 0rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.tip-image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+.tip-text {
+    font-size: 33rpx;
+    padding-left: 38rpx;
+}
