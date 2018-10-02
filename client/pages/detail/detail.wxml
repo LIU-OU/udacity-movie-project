@@ -25,7 +25,7 @@
 </view>
 <view  wx:if="{{isPanel}}" class="panel-background" id="commentPanel" bindtap="modOnTapCommentPanel" >
     <view class="addComment-panel" id="zzz" catchtap="">
-        <navigator url='/pages/comment-add/comment-add?image={{movie.image}}&title={{movie.title}}&showText="text"' class="add-textComment">文字</navigator>
+        <navigator url='/pages/comment-add/comment-add?image={{movie.image}}&title={{movie.title}}&showText=true' class="add-textComment">文字</navigator>
         <navigator url='/pages/comment-add/comment-add?image={{movie.image}}&title={{movie.title}}&showAudio=true' class="add-audioComment">音频</navigator>
         <view class="cancle-button" bindtap="onTapCommentPanel">取消</view>
     </view>

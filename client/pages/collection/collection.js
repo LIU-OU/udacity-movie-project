@@ -1,48 +1,36 @@
-// pages/comment-add/comment-add.js
+// pages/collection/collection.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // movie: {}
-    movie: {
-      image: "https://udacity-movie-1257363573.cos.ap-chengdu.myqcloud.com/p2504277551.jpg",
-      title: "至暗时刻 Darkest Hour"
-    },
-    textFocus: false,  // 输入文字评论的 input 组件是否自动聚焦
-    isRecord: false  // 是否通过录音按钮跳转到本页
+    userInfo: null,
+    locationAuthType: app.data.locationAuthType
 
+  },
+  onTapLogin: function () {
+    app.login({
+      success: ({userInfo}) => {
+        this.setData({
+          userInfo,
+          locationAuthType: app.data.locationAuthType
+        })
+      },
+      error: () => {
+        this.setData({
+          locationAuthType: app.data.locationAuthType
+        })
+      }
+    })
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // let movie = {}
-    // movie.image = options.image
-    // movie.title = options.title
-    // this.setData({
-    //   movie: movie
-    // })
-    
-    if(options.showText) {
-      this.setData({
-        textFocus: true
-      })
-    }
-    if(options.showAudio) {
-      this.setData({
-        isRecord: true
-      })
-    }
-
-    // console.log(options.showText)
-    // if(options.showText == 'text') {
-    //   console.log("233")
-    // }
-  
-
 
   },
 
@@ -57,6 +45,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      locationAuthType: app.data.locationAuthType
+    })
+    app.checkSession({
+      success: ({userInfo}) => {
+        this.setData({
+          userInfo
+        })
+      }
+    })
 
   },
 
