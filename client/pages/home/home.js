@@ -1,6 +1,7 @@
 // pages/home/home.js
 const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
 const config = require('../../config.js')
+const app = getApp()
 Page({
 
   /**
@@ -8,6 +9,7 @@ Page({
    */
   data: {
     movie: [], //电影列表
+    userInfo: null
   },
   //获取某个范围随机整数的方法
   selectFrom(lowerValue, upperValue) {
@@ -71,9 +73,24 @@ Page({
 
   /**
    * 生命周期函数--监听页面显示
+   * app 重新加载的第一个页面是home,所以要在它的周期函数 onShow 中执行
+   * 会话检测，在会话检测回调中会正确设置全局 个人信息 userInfo
+   * 这样页面在会话期间，一加载首页就可以获取  userInfo  信息，以便使用
    */
   onShow: function () {
     this.getRandomMovie()
+    app.checkSession({
+
+      success: ({
+        userInfo
+      }) => {
+        this.setData({
+          userInfo
+        })
+        console.log("检测会话")
+        console.log(this.data.userInfo)
+      }
+    })
   },
 
   /**

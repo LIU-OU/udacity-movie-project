@@ -1,10 +1,11 @@
 <view class="addCom-panel">
     <image class="movie-picture" src="{{movie.image}}" mode="widthFix"></image>
     <view class="movie-title">{{movie.title}}</view>
-    <textarea class="comment-text" placeholder="输入你的影评内容..." auto-focus="{{textFocus}}"></textarea>
-    <view class="comment-audio {{isRecord ? 'auto-audio': ''}}">
-        <image  class="record-icon" src="../../images/record.png" mode="widthFix" ></image>
+    <textarea class="comment-text" placeholder="输入你的影评内容..." bindinput = "onInput" auto-focus="{{textFocus}}"></textarea>
+    <view class="comment-audio {{onRecord ? 'rec-begin': ''}}" bindtouchstart="onTouchRecord" bindtouchend="onStopRecord">
+<image class="record-icon" src="{{onRecord ? '../../images/record-white.png':'../../images/record.png'}}" mode="widthFix"></image>
         <view class="record-text">录音</view>
     </view>
+    <view class="preview-audio {{isAuPlay? 'onPlay': ''}}" wx:if="{{audioDuration > 0}}" bindtap="onTapTurnAudio">``{{audioDuration}}</view>
 </view>
-<view class="done-button">完成</view>
+<view class="done-button" bindtap="onTapEntrancePrev">完成</view>

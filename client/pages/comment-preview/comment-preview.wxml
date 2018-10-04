@@ -1,0 +1,26 @@
+<view class="comPreview-panel">
+    <image class="movie-picture" src="{{movie.image}}" mode="widthFix"></image>
+    <view class="movie-title">{{movie.title}}</view>
+    <view class="comContent">
+        <view class="comment-user">
+            <image class="userAvatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+            <view class="userName">{{userInfo.nickName}}的影评</view>
+        </view>
+        <scroll-view scroll-y class="comment-text"wx:if="{{commentValue.length}}">
+            <view class="quaMark">"</view>
+            <view class="content-text">{{commentValue}}</view>
+        </scroll-view>
+        <view class="preview-audio {{isAuPlay? 'onPlay': ''}}" wx:if="{{audioFilePath.length}}" bindtap="onTapTurnAudio">``{{audioDuration}}</view>
+    </view>
+
+    <view class="comStatus-turn">
+        <view class="reform-btn">
+            <image class="reform-image" src="../../images/reform.png" mode="widthFix"></image>
+            <view class="reform-text">重新编辑</view>
+        </view>
+        <view class="release-btn">
+            <image class="release-image" src="../../images/release.png" mode="widthFix"></image>
+            <view class="release-text">发布影评</view>
+        </view>
+    </view>
+</view>

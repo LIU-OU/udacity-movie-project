@@ -1,0 +1,5 @@
+<view class="noComment-tips" wx:if="{{!commentList.length}}">
+    <image class="comTip-pic" src="../../images/haha.png" mode="aspectFill"></image>
+    <view class="comTip-text">当前电影没有任何评论，去添加评论吧</view>
+    <navigator class="entra-comment" url="/pages/comment-add/comment-add?image={{movie.image}}&title={{movie.title}}&id={{movie.id}}">第一个评论？</navigator>
+</view>

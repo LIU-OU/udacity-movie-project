@@ -2,7 +2,7 @@
 var qcloud = require('./vendor/wafer2-client-sdk/index')
 var config = require('./config')
 
-let userInfo
+let globalUserInfo
 
 const UNPROMPTED = 0
 const UNAUTHORIZED = 1
@@ -11,12 +11,13 @@ const AUTHORIZED = 2
 App({
     onLaunch: function () {
         qcloud.setLoginUrl(config.service.loginUrl)
-        console.log("223")
-        console.log(userInfo)
+       
+        console.log("app onLoauch 周期函数 获取全局变量 globalUserInfo", globalUserInfo)
     },
 
     data: {
-        locationAuthType: UNPROMPTED
+        locationAuthType: UNPROMPTED,
+        userInfo: globalUserInfo
     },
 
     login({
@@ -53,7 +54,9 @@ App({
         // 调用 qcloud 登陆接口
         qcloud.login({
             success: result => {
+                console.log("第一次调用登陆接口登陆 result", result)
                 if (result) {
+                    globalUserInfo = result
                     let userInfo = result
                     success && success({
                         userInfo
@@ -76,16 +79,26 @@ App({
         success,
         error
     }) {
-        if (userInfo) return userInfo
+        if (globalUserInfo) {
+            console.log("使用getUserInfo时全局变量globalUserInfo 存在",globalUserInfo)
+            return success && success({
+                userInfo:globalUserInfo
+            })
+        }
 
         qcloud.request({
             url: config.service.user,
             login: true,
             success: result => {
                 let data = result.data
+                console.log("不是第一次登陆，重新发起获取个人信息的请求",data)
 
                 if (!data.code) {
                     let userInfo = data.data
+                    globalUserInfo = userInfo
+                    //通过这里的设置，设置一次全局个人信息后可以在其它页面通过全局对象获取
+                    this.data.userInfo =userInfo
+                    console.log("设置的全局个人信息", globalUserInfo)
 
                     success && success({
                         userInfo
@@ -104,9 +117,9 @@ App({
         success,
         error
     }) {
-        if (userInfo) {
+        if (globalUserInfo) {
             return success && success({
-                userInfo
+                userInfo:globalUserInfo
             })
         }
 
@@ -114,10 +127,12 @@ App({
             success: () => {
                 this.getUserInfo({
                     success: res => {
-                        userInfo = res.userInfo
+                        let userInfo = res.userInfo
+                        globalUserInfo = userInfo
+                        this.data.userInfo = userInfo
 
                         success && success({
-                            userInfo
+                           userInfo
                         })
                         console.log("处于会话期间")
                     },

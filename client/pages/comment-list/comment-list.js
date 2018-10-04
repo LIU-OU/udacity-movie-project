@@ -1,17 +1,27 @@
-// pages/review-list/review-list.js
+// pages/comment-list/comment-list.js
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    movie: {}
 
   },
+ 
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let movie = {}
+    movie.id = options.id
+    movie.image = options.image
+    movie.title = options.title
+    this.setData({
+      movie: movie
+    })
 
   },
 
