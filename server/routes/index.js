@@ -38,4 +38,7 @@ router.get('/movie/:id',validationMiddleware, controllers.movie.detail)
 //GET 用来获取电影列表
 router.get('/movie', controllers.movie.list)
 
+//为电影添加评论
+router.put('/comment', validationMiddleware, controllers.comment.add)
+
 module.exports = router

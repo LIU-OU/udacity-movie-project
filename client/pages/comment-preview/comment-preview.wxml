@@ -14,11 +14,11 @@
     </view>
 
     <view class="comStatus-turn">
-        <view class="reform-btn">
+        <view class="reform-btn" bindtap="onTapBack">
             <image class="reform-image" src="../../images/reform.png" mode="widthFix"></image>
             <view class="reform-text">重新编辑</view>
         </view>
-        <view class="release-btn">
+        <view class="release-btn" bindtap="addComment">
             <image class="release-image" src="../../images/release.png" mode="widthFix"></image>
             <view class="release-text">发布影评</view>
         </view>

@@ -1,3 +1,5 @@
+const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
+const config = require('../../config.js')
 const app = getApp()
 Page({
 
@@ -15,6 +17,58 @@ Page({
     onRecord: false,
     isAuPlay: false
 
+  },
+  /**  
+   * 使用wx.uploadFile()  上传音频到存储桶，并返回在存储桶的地址
+   */
+  uploadAudio(cb) {
+    let audioFilePath = this.data.audioFilePath
+    audioFilePath = audioFilePath.replace("http","https")
+    console.log(audioFilePath)
+    wx.uploadFile({
+      url: config.service.uploadUrl,
+      filePath: audioFilePath,
+      name: 'file',
+      success: res => {
+        let data = JSON.parse(res.data)
+        let audio
+        if(!data.code) {
+          audio = data.data.imgUrl
+          console.log("存储桶音频路径是", audio)
+        }
+        cb(audio)
+      }
+    })
+  },
+  addComment() {
+    let content = this.data.commentValue
+    if(!content) return
+    console.log("开始添加电影评论")
+    console.log("content的的内容是", content)
+
+    wx.showLoading({
+      title: '正在发表评论'
+    })
+    this.uploadAudio(audio => {
+      console.log("准备存储audio 路径到数据库", audio)
+      qcloud.request({
+        url: config.service.addComment,
+        login: true,
+        method: 'PUT',
+        data: {
+          audio: audio,
+          content: content,
+          movie_id: this.data.movie.id
+        },
+        success: result => {
+          wx.hideLoading()
+          console.log("上传评论到数据库结束")
+        }
+      })
+    })
+  },
+  onTapBack() {
+    wx.navigateBack()
   },
 
   /**

@@ -38,6 +38,66 @@ CREATE TABLE `movie_comment` (
   `avatar` varchar(255) NOT NULL,
   `content` varchar(511) CHARACTER SET utf8 DEFAULT NULL,
   `images` varchar(1023) DEFAULT NULL,
+  `audio` varchar(1023) DEFAULT NULL,
   `movie_id` int(11) NOT NULL,
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+-- 表的结构  `collection`
+
+CREATE TABLE `comment_collection` (
+  `id` int(11) NOT NULL,
+  `user` varchar(255) NOT NULL,
+  `comment_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped talbes
+--
+
+-- indexes for table `movie_comment`
+ALTER TABLE `movie_comment`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `movie` (`movie_id`);
+
+ALTER TABLE `comment_collection`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `comment_link` (`comment_id`);
+
+ALTER TABLE `movies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 在导出的表使用 AUTO_INCREMENT
+--
+
+--
+-- 使用 AUTO_INCREMENT `movie_comment`
+--
+ALTER TABLE `movie_comment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+
+--
+--使用 AUTO_INCREMENT `comment_collection`
+--
+ALTER TABLE `comment_collection`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+
+--
+-- 限制导出的表
+--
+
+--
+-- 限制表 `movie_comment`
+--
+ALTER TABLE `movie_comment`
+  ADD CONSTRAINT `movie_link` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`);
+
+--
+-- 限制表 `comment_collection`
+--
+ALTER TABLE `comment_collection`
+  ADD CONSTRAINT `comment_link` FOREIGN KEY (`comment_id`) REFERENCES `movie_comment` (`id`);

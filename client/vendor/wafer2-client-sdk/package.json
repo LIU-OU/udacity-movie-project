@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/tencentyun/wafer2-client-sdk/issues"
   },
-  "bundleDependencies": false,
+  "bundleDependencies": [],
   "deprecated": false,
   "description": "Wafer client SDK",
   "directories": {
@@ -43,5 +43,5 @@
     "type": "git",
     "url": "git+https://github.com/tencentyun/wafer2-client-sdk.git"
   },
-  "version": "1.0.0"
+  "version": "2.0.0"
 }

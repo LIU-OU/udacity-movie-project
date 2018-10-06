@@ -28,7 +28,9 @@ var config = {
         // 获取某个具体电影
         movieDetail: `${host}/weapp/movie/`,
         //获取电影列表
-        movieList:  `${host}/weapp/movie`
+        movieList:  `${host}/weapp/movie`,
+        //上传电影评论
+        addComment: `${host}/weapp/comment`,
     }
 };
 

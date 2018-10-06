@@ -20,7 +20,7 @@ const CONF = {
         host: 'localhost',
         port: 3306,
         user: 'root',
-        db: 'cAuth',
+        db: 'dAuth',
         pass: 'wx5555c54f2919e250',
         char: 'utf8mb4'
     },
@@ -30,11 +30,12 @@ const CONF = {
          * 地区简称
          * @查看 https://cloud.tencent.com/document/product/436/6224
          */
-        region: 'ap-guangzhou',
+        region: 'ap-chengdu',
         // Bucket 名称
-        fileBucket: 'qcloudtest',
+        fileBucket: 'udacity-movie-1257363573',
         // 文件夹
-        uploadFolder: ''
+        uploadFolder: '',
+        mimetypes: ['audio/x-aac', 'audio/mpeg', 'video/webm', 'audio/mpeg', 'audio/mp3','audio/m4a']
     },
 
     // 微信登录态有效期
